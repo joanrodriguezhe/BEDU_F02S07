@@ -25,5 +25,12 @@ function createNode(type, child) {
 }
 
 let quote = document.getElementById('quote');
-let footer = createNode('footer',createNode('strong','-Karl Popper'));
+let footer = createNode('footer', createNode('strong', '-Karl Popper'));
 quote.appendChild(footer);
+
+//Reto 1
+let imgTags = document.body.getElementsByTagName("img");
+for (img of [...imgTags]) {
+    let textAlt = document.createTextNode(img.alt);
+    img.parentNode.replaceChild(textAlt, img);
+}
