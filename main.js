@@ -7,4 +7,23 @@ console.log('Primer nodo:', paragraphs[0]);
 console.log('Segundo nodo:', paragraphs[1]);
 console.log('Tercer nodo:', paragraphs[2]);
 
-document.body.insertBefore(paragraphs[2],paragraphs[0]);
+document.body.insertBefore(paragraphs[2], paragraphs[0]);
+
+
+//Ejemplo 3
+
+function createNode(type, child) {
+    let node = document.createElement(type);
+    if (typeof child === "string") {
+        let text = document.createTextNode(child);
+        node.appendChild(text);
+    } else {
+        node.appendChild(child);
+    }
+
+    return node;
+}
+
+let quote = document.getElementById('quote');
+let footer = createNode('footer',createNode('strong','-Karl Popper'));
+quote.appendChild(footer);
